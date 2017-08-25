@@ -1,6 +1,7 @@
 ### Service Worker
 
 如果对概念不清楚请先了解下[Service Worker](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+需要注意的是，Service Worker线程脚本只能由`HTTPS`承载
 
 先注册`sw.js`脚本文件
 ```js
@@ -30,6 +31,12 @@ const CACHE_DATA = {
 	]
 }
 ```
+[点我查看](https://demo.sweetui.com/ex1/)
+
+<img src="sw1.png">
+
+可以看到status都是200并且都是from ServiceWorker
+离线刷新页面依然可以访问
 
 
 ### 缓存静态资源
@@ -74,5 +81,10 @@ self.addEventListener('fetch', event => {
 	)
 })
 ```
+[点我查看](https://demo.sweetui.com/ex2/)
 
+<img src="sw2.png">
+
+缓存列表里没有index.js (from disk cache)
+做到静态资源缓存
 
